@@ -1,5 +1,11 @@
 This is a socket based multiplayer quiz based on Python
 
+**Instructions**
+
+1. Download the files `server.py` and `client.py`
+2. Run this command on your terminal after going into the directory in which the files are stored `python server.py <Your IP Address> <Any Port number>`
+3. Open three more terminals(three users) on your desktop and type `python client.py <Your IP address> <Server's port number>` and continue
+
 
 **Project Overview**
 
@@ -21,4 +27,4 @@ https://www.youtube.com/watch?v=6jteAOmdsYg&list=PLhTjy8cBISErYuLZUvVOYsR1giva2p
 
 https://docs.python.org/3/library/socket.html
 
-Kurose and Ross 
+*Computer Networking: A Top-Down Approach by Kurose and Ross*
