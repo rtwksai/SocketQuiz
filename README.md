@@ -6,7 +6,7 @@ This is a socket based multiplayer quiz based on Python
 
 1. Download the files `server.py` and `client.py`
 2. Run this command on your terminal after going into the directory in which the files are stored `python server.py <Your IP Address> <Any Port number>`
-3. Open three more terminals(three users) on your desktop and type `python client.py <Your IP address> <Server's port number>` and continue. You could alternatively do this on multiple systems instead of doin this on a single desktop.
+3. Open three more terminals(three users) on your desktop and type `python client.py <Your IP address> <Server's port number>` and continue. You could alternatively do this on multiple systems instead of doing this on a single desktop.
 
 
 **Project Overview**
