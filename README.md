@@ -29,4 +29,4 @@ https://www.youtube.com/watch?v=6jteAOmdsYg&list=PLhTjy8cBISErYuLZUvVOYsR1giva2p
 
 https://docs.python.org/3/library/socket.html
 
-*Computer Networking: A Top-Down Approach by Kurose and Ross*
+*Computer Networking: A Top-Down Approach by Kurose and  Ross*
