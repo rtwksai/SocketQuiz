@@ -110,7 +110,7 @@ def end_quiz():
         for x in range(len(list_of_clients)):
             list_of_clients[x].send(bytes("You scored " + str(Count[x]) + " points.",'utf-8'))
             
-        server.close()
+#         server.close() so the server doesn't go down
 
 
 def quiz():
