@@ -1,6 +1,6 @@
 import socket
 import select
-from thread import *
+from _thread import *
 import sys
 import time
 import random
@@ -53,7 +53,7 @@ client = ["address",-1]
 bzr =[0, 0, 0] #Buzzer List
 
 def clientthread(conn, addr):
-    conn.send("Hello Genius!!!\n Welcome to this quiz! Answer any 5 questions correctly before your opponents do\n Press any key on the keyboard as a buzzer for the given question\n")
+    conn.send(bytes("Hello Genius!!!\n Welcome to this quiz! Answer any 5 questions correctly before your opponents do\n Press any key on the keyboard as a buzzer for the given question\n",'utf-8'))
     #Intro MSG
     while True:
             message = conn.recv(2048)
@@ -70,7 +70,7 @@ def clientthread(conn, addr):
 
                 elif bzr[0] ==1 and conn==client[0]:
                         bol = message[0] == A[bzr[2]][0]
-                        print A[bzr[2]][0]
+                        print(A[bzr[2]][0])
                         if bol:
                             broadcast("player" + str(client[1]+1) + " +1" + "\n\n")
                             Count[i] += 1
@@ -91,14 +91,14 @@ def clientthread(conn, addr):
                         quiz()
 
                 else:
-                        conn.send(" player " + str(client[1]+1) + " pressed buzzer first\n\n")
+                        conn.send(bytes(" player " + str(client[1]+1) + " pressed buzzer first\n\n",'utf-8'))
             else:
                     remove(conn)
 
 def broadcast(message):
     for clients in list_of_clients:
         try:
-            clients.send(message)
+            clients.send(bytes(message,'utf-8'))
         except:
             clients.close()
             remove(clients)
@@ -108,7 +108,7 @@ def end_quiz():
         i = Count.index(max(Count))
         broadcast("player " + str(i+1)+ " wins!! by scoring "+str(Count[i])+" points.")
         for x in range(len(list_of_clients)):
-            list_of_clients[x].send("You scored " + str(Count[x]) + " points.")
+            list_of_clients[x].send(bytes("You scored " + str(Count[x]) + " points.",'utf-8'))
             
         server.close()
 
@@ -117,7 +117,7 @@ def quiz():
     bzr[2] = random.randint(0,10000)%len(Q)
     if len(Q) != 0:
         for connection in list_of_clients:
-            connection.send(Q[bzr[2]])
+            connection.send(bytes(Q[bzr[2]],'utf-8'))
 def remove(connection):
     if connection in list_of_clients:
         list_of_clients.remove(connection)
@@ -127,7 +127,7 @@ while True:
     conn, addr = server.accept()
     list_of_clients.append(conn)
     Count.append(0)
-    print addr[0] + " connected"
+    print(addr[0] + " connected")
     start_new_thread(clientthread,(conn,addr))
     if(len(list_of_clients)==3):
         quiz()
