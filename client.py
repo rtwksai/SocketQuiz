@@ -6,7 +6,7 @@ import sys
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 if len(sys.argv) != 3:
-    print "Print in the following order : script, IP address, port number"
+    print("Print in the following order : script, IP address, port number")
     exit()
 
 IP_address = str(sys.argv[1])
@@ -22,11 +22,11 @@ while True:
 
     for socks in read_sockets:
         if socks == server:
-            message = socks.recv(2048)
-            print message
+            message = socks.recv(2048).decode()
+            print(message)
         else:
             message = sys.stdin.readline()
-            server.send(message)
+            server.send(bytes(message,'utf-8')
             sys.stdout.flush()
 server.close()
 sys.exit()
